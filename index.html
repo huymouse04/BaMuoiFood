@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bà Mươi Food</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        .header {
+            background: #007800;
+            color: #fff;
+            padding: 1rem 0;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .header .logo img {
+            width: 70px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin: 0 10px;
+        }
+
+        .navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .btn-mua-hang {
+            background: #ffc107;
+            color: #333;
+            padding: 0.5rem 1rem;
+            border-radius: 15px;
+            text-decoration: none;
+        }
+
+        /* Banner */
+        .banner {
+            background: url(img/banner-3.png) no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 17rem 1rem;
+        }
+
+        .banner h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn-primary {
+            background: #ffc107;
+            color: #333;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        /* Sections */
+        section {
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Giới thiệu */
+
+        .gioi-thieu {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            background: #fef9e7;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .gioi-thieu .text,
+        .gioi-thieu .images {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .gioi-thieu {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gioi-thieu .text {
+            padding: 1rem;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .gioi-thieu .text h2 {
+            font-size: 2rem;
+            color: #007800;
+            margin-bottom: 1rem;
+        }
+
+        .gioi-thieu .text p {
+            margin-bottom: 1rem;
+        }
+
+        .gioi-thieu .images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .gioi-thieu .images img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Thực đơn */
+        #thuc-don {
+            background: #fef9e7;
+            /* Màu nền cho phần Thực đơn */
+        }
+
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .menu-item {
+            text-align: center;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background: #fff;
+        }
+
+        .menu-item h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 0.5rem;
+        }
+
+
+        .menu-item button {
+            background: #007800;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Số liệu */
+        #so-lieu {
+            background: #f3f3f3;
+            /* Màu nền cho phần Số liệu */
+        }
+
+        .statistics {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .stat h3 {
+            color: #007800;
+            font-size: 1.5rem;
+        }
+
+        .locations-section ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .locations-section ul li {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        /* Footer */
+        .footer {
+            background: #007800;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        .social-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .social-links li {
+            margin: 0 10px;
+        }
+
+        .social-links a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+
+        .footer img {
+            width: 60px;
+            height: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="img/logo.png" alt="BM Food Logo">
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#gioi-thieu">Giới thiệu</a></li>
+                    <li><a href="#thuc-don">Thực đơn</a></li>
+                    <li><a href="#so-lieu">Số liệu</a></li>
+                    <li><a href="#locations">Địa chỉ</a></li>
+                    <li><a href="#truyen-thong">Truyền thống</a></li>
+                    <li><a href="#thuong-hieu">Thương hiệu</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="btn-mua-hang">Mua hàng về</a>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <section class="banner">
+        <!-- <h1>Tinh hoa ẩm thực Việt - Bún siêu Hương Béo</h1>
+        <a href="#thuc-don" class="btn-primary">Thực đơn</a> -->
+    </section>
+
+    <!-- Giới thiệu -->
+    <section id="gioi-thieu" class="gioi-thieu">
+        <div class="text">
+            <h2>Ý TƯỞNG HÌNH THÀNH</h2>
+            <p>Nguồn gốc dân gian và ảnh hưởng vùng miền
+                Bún riêu có thể được hình thành từ nhu cầu tạo ra một món ăn bổ dưỡng, dễ làm và tiết kiệm từ các nguyên
+                liệu phổ biến trong đời sống nông thôn Việt Nam. Với các thành phần như cua đồng, cà chua, mắm tôm, và
+                nước dùng chua nhẹ, món ăn phản ánh rõ nét sự dung dị, dân dã nhưng đầy sáng tạo của người dân vùng đồng
+                bằng sông Hồng.
+                <br>
+                Sự kết hợp của nguyên liệu tự nhiên
+                Từ xưa, cua đồng được xem là nguồn đạm dễ tìm ở các vùng nông thôn. Cua được giã nhuyễn để lọc lấy nước
+                và nấu thành riêu. Việc thêm cà chua, dấm bỗng (hoặc me, chanh) giúp cân bằng hương vị và tăng độ thanh
+                mát cho nước dùng. Đây chính là nền tảng tạo nên bún riêu: một sự hòa quyện tự nhiên giữa vị ngọt của
+                cua và vị chua thanh của các nguyên liệu kèm theo.
+                <br>
+                Tính sáng tạo qua thời gian
+                Ban đầu, bún riêu có thể chỉ đơn giản gồm nước riêu cua và bún tươi. Qua thời gian, người dân đã thêm
+                vào các thành phần như đậu hũ chiên, huyết heo, chả cua, hoặc thậm chí thịt bò và giò lụa để món ăn thêm
+                phong phú, phù hợp khẩu vị hiện đại mà vẫn giữ được nét truyền thống.
+                <br>
+                Ảnh hưởng văn hóa và xã hội
+                Bún riêu cũng có thể ra đời từ sự giao thoa văn hóa giữa các vùng miền. Mỗi nơi đã biến tấu theo cách
+                riêng, chẳng hạn như miền Bắc thường dùng dấm bỗng để tạo vị chua, trong khi miền Nam lại thêm nhiều gia
+                vị ngọt để phù hợp với khẩu vị địa phương. Điều này chứng minh sức sống mạnh mẽ và sự thích ứng của món
+                ăn theo từng thời kỳ.
+                <br>
+                Tư duy kinh tế và thương mại
+                Bún riêu từ món ăn gia đình đã trở thành món ăn phổ biến trên các gánh hàng rong, quán ăn nhỏ. Chi phí
+                thấp, nguyên liệu dễ tìm, cách chế biến nhanh chóng đã giúp món ăn này trở thành sự lựa chọn hàng đầu
+                cho các bữa ăn ngoài trời hoặc các buổi sáng bận rộn.
+            </p>
+        </div>
+        <div class="images">
+            <img src="img/1.jpg" alt="Món ăn 1">
+            <img src="img/2.jpg" alt="Món ăn 2">
+            <img src="img/3.jpg" alt="Món ăn 3">
+            <img src="img/4.jpg" alt="Món ăn 4">
+        </div>
+    </section>
+
+    <!-- Thực đơn -->
+    <section id="thuc-don" class="thuc-don">
+        <div class="container">
+            <h2>THỰC ĐƠN</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <img src="img/1.jpg" alt="Tô Đặc Biệt">
+                    <h3>Tô Đặc Biệt</h3>
+                    <p>60.000đ</p>
+                    <p><em>Một tô đầy đủ topping: giò, thịt, chả cua đặc biệt.</em></p>
+                    <button>Đặt ngay</button>
+                </div>
+                <div class="menu-item">
+                    <img src="img/2.jpg" alt="Tô Đầy Đủ">
+                    <h3>Tô Đầy Đủ</h3>
+                    <p>50.000đ</p>
+                    <p><em>Đầy đủ hương vị thơm ngon với nguyên liệu tươi sạch.</em></p>
+                    <button>Đặt ngay</button>
+                </div>
+                <div class="menu-item">
+                    <img src="img/3.jpg" alt="Tô Ngon Miệng">
+                    <h3>Tô Ngon Miệng</h3>
+                    <p>40.000đ</p>
+                    <p><em>Phù hợp với khẩu phần vừa phải, đầy đủ dưỡng chất.</em></p>
+                    <button>Đặt ngay</button>
+                </div>
+                <div class="menu-item">
+                    <img src="img/4.jpg" alt="Tô Tùy Chọn">
+                    <h3>Tô Tùy Chọn</h3>
+                    <p>30.000đ</p>
+                    <p><em>Chọn món theo sở thích, giá cả hợp lý.</em></p>
+                    <button>Đặt ngay</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Số liệu -->
+    <section id="so-lieu" class="so-lieu">
+        <div class="container">
+            <h2>MỘT VÀI CON SỐ</h2>
+            <div class="statistics">
+                <div class="stat">
+                    <h3>4+</h3>
+                    <p>Năm hình thành</p>
+                </div>
+                <div class="stat">
+                    <h3>35+</h3>
+                    <p>Cửa hàng trên cả nước</p>
+                </div>
+                <div class="stat">
+                    <h3>~95%</h3>
+                    <p>Khách hàng hài lòng</p>
+                </div>
+                <div class="stat">
+                    <h3>250.000+</h3>
+                    <p>Lượt khách mỗi tháng</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="locations" class="locations-section">
+        <div class="container">
+            <h2>Địa chỉ cửa hàng</h2>
+            <ul>
+                <li><strong>Chi nhánh 1:</strong> 123 Main Street, District 1, Ho Chi Minh City</li>
+                <li><strong>Chi nhánh 2:</strong> 456 Nguyen Trai, District 5, Ho Chi Minh City</li>
+                <li><strong>Chi nhánh 3:</strong> 789 Le Loi, District 3, Ho Chi Minh City</li>
+                <li><strong>Chi nhánh 4:</strong> 321 Tran Phu, District 7, Ho Chi Minh City</li>
+                <li><strong>Chi nhánh 5:</strong> 654 Pham Van Dong, Thu Duc City</li>
+            </ul>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 by BM Food. All rights reserved.</p>
+            <p>&#x261B; Địa chỉ : Bà Mươi Food</p>
+            <p>&#x260F; Hotline : 1900 0000</p>
+            <p>&#x2709; Email : BaMuoiFood@gmail.com</p>
+            <p>&#x270D; Website : http://BaMuoiFood.com</p>
+            <p>Mạng xã hội</p>
+            <ul class="social-links">
+                <li><a href="#"><img src="img/fb.jpg" alt=""></a></li>
+                <li><a href="#"><img src="img/zl.jpg" alt=""></a></li>
+                <li><a href="#"><img src="img/in.jpg" alt=""></a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+
+</html>
